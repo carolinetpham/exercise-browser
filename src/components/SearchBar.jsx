@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+//import Fuse from 'fuse.js';
 
 export default function SearchBar() {
     const [input, setInput] = useState('');
@@ -16,7 +17,57 @@ export default function SearchBar() {
         console.log(data);
         setExercises(data);
     }
+    /*
 
+    const [input, setInput] = useState('');
+    const [exercises, setExercises] = useState([]);
+    const [allExercises, setAllExercises] = useState([]);
+
+    useEffect(() => {
+        const fetchExercises = async () => {
+            const response = await fetch('https://api.api-ninjas.com/v1/exercises', {
+                headers: {
+                    'X-Api-Key': 'ufNOt6v1uSHTQvE27j1YYg==9eftffBAEhwXsdCn'
+                }
+            });
+            const data = await response.json();
+            setAllExercises(data);
+        };
+
+        fetchExercises();
+    }, []);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        const options = {
+            keys: ['muscle'],
+            threshold: 0.3
+        };
+
+        const fuse = new Fuse(allExercises, options);
+        const result = fuse.search(input);
+
+        setExercises(result.map(({ item }) => item));
+    };
+
+abdominals
+abductors
+adductors
+biceps
+calves
+chest
+forearms
+glutes
+hamstrings
+lats
+lower_back
+middle_back
+neck
+quadriceps
+traps
+triceps
+*/
     return (
         <div>
             <nav className="navbar navbar-light bg-light">
